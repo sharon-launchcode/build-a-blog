@@ -1,26 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Get It Done!</h1>
+    <h1>New Post!</h1>
     <form method='post'>
         <label>
             New Task:
-            <input type="text" name='task' />
+            <input type="text" name='post' />
         </label>
-        <input type="submit" value='Add Task' />
+        <input type="submit" value='Add Post' />
     </form>
 
     <hr />
 
-    {% if tasks|length == 0 %}
-    <p>No tasks yet</p>
+    {% if posts|length == 0 %}
+    <p>No post yet</p>
     {% else %}
 
         <ul>
-            {% for task in tasks %}
-            <li>{{task.name}}
-                <form method="POST" action="/delete-task" style="display:inline-block;">
-                    <input type="hidden" name="task-id" value="{{task.id}}" />
+            {% for post in posts %}
+            <li>{{post.name}}
+                <form method="POST" action="/delete-post" style="display:inline-block;">
+                    <input type="hidden" name="post-id" value="{{post.id}}" />
                     <input type="submit" value="Done!" />
                 </form>
             </li>
