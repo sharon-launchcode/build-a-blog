@@ -4,9 +4,14 @@
     <h1>New Post!</h1>
     <form method='post'>
         <label>
-            New Task:
-            <input type="text" name='post' />
+            Title for Your New Post:
+            <input type="text" name='post_title' value="{{title}}" />
         </label>
+        <label>
+            Your Post:
+            <input type="textarea" name='post_entry' value="{{entry}}" />
+        </label>
+
         <input type="submit" value='Add Post' />
     </form>
 
