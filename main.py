@@ -11,7 +11,8 @@ db = SQLAlchemy(app)
 class Blog(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120))
+    posttitle = db.Column(db.String(120))
+    postentry = db.Column(db.String(500))
 
     def __init__(self, name):
         self.name = name
