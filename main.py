@@ -23,6 +23,8 @@ def index():
         tasks.append(task)
 
     return render_template('todos.html',title="Get It Done!", tasks=tasks)
-
+#shields the app from imports unless the main.py file is run ...hence the name if name is main
+#to run a python shell in flask type python not python main.py just python puts you in python shell
+#this allows you to test databases and put data into databases that is application oriented
 if __name__ == '__main__':
     app.run()
