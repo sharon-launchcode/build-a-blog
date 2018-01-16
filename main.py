@@ -6,6 +6,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://build-a-blog:build-a-bl
 app.config['SQLALCHEMY_ECHO'] = True
 db = SQLAlchemy(app)
 
+#according to the video, this is all that is necessary to give each Task object a unique integer
 class Task(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
