@@ -11,11 +11,12 @@ db = SQLAlchemy(app)
 class Blog(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
-    posttitle = db.Column(db.String(120))
-    postentry = db.Column(db.String(500))
+    title = db.Column(db.String(120))
+    body = db.Column(db.String(500))
 
-    def __init__(self, name):
-        self.name = name
+    def __init__(self, title, body):
+        self.title = title
+        self.body = body
 
 
 @app.route('/', methods=['POST', 'GET'])
