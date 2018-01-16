@@ -35,6 +35,8 @@ def new_post():
         title = request.form['title']
         body = request.form['body']
 
+        
+
         if title == "" or body == "":
             if title == "":
                 title_error = "Please enter a title"
@@ -50,9 +52,7 @@ def new_post():
             return redirect("/blog?id=" + body_id)
 
     return render_template('/newpost.html')
-
-@app.route('/newpost', methods=['POST', 'GET'])        
-
+       
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
@@ -66,16 +66,6 @@ def index():
     blogs = Blog.query.all()
     return render_template('blog.html',title="Blog!", blogs=blogs)
 
-
-@app.route('/delete-blog', methods=['POST'])
-def delete_task():
-
-    blog_id = int(request.form['blog-id'])
-    blog = Blog.query.get(blog_id)
-    db.session.delete(blog)
-    db.session.commit()
-
-    return redirect('/')
 
 
 if __name__ == '__main__':
