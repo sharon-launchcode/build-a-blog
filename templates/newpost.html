@@ -7,11 +7,12 @@
             Title for Your New Post:
             <input type="text" name='title' value="{{title}}" />
         </label>
+        <p style="color:red;">{{title_error}}</p>
         <label>
             Your Post:
             <input type="textarea" name='body' value="{{body}}" />
         </label>
-
+        <p style="color:red;">{{body_error}}</p>
         <input type="submit" value='Add Post' />
     </form>
 
