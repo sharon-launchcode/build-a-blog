@@ -3,20 +3,12 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://get-it-done:beproductive@localhost:8889/get-it-done'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://build-a-blog:ok@localhost:8889/build-a-blog'
 app.config['SQLALCHEMY_ECHO'] = True
 db = SQLAlchemy(app)
 
-class Task(db.Model):
 
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120))
-
-    def __init__(self, name):
-        self.name = name
-
-
-class Task(db.Model):
+class Blog(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120))
@@ -34,16 +26,16 @@ def index():
         db.session.add(new_task)
         db.session.commit()
 
-    tasks = Task.query.all()
-    return render_template('todos.html',title="Get It Done!", tasks=tasks)
+    blogs = Blog.query.all()
+    return render_template('blog.html',title="Blog!", blogs=blogs)
 
 
-@app.route('/delete-task', methods=['POST'])
+@app.route('/delete-blog', methods=['POST'])
 def delete_task():
 
-    task_id = int(request.form['task-id'])
-    task = Task.query.get(task_id)
-    db.session.delete(task)
+    blog_id = int(request.form['blog-id'])
+    blog = Blog.query.get(blog_id)
+    db.session.delete(blog)
     db.session.commit()
 
     return redirect('/')

@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
+
+<h1>Build Your Own Blog</h1>
+
 {% for post in posts %}
-<li>{{post.name}}
-    <form method="POST" action="/delete-post" style="display:inline-block;">
-        <input type="hidden" name="post-id" value="{{post.id}}" />
-        <input type="submit" value="Done!" />
-    </form>
-</li>
+
+<h2 class="title"><a href="./blog?id={{ post.id }}">{{post.post_title}}</a></h2>
+<p class="entry">{{post.post_entry}}</p>
+
 {% endfor %}
 
 {% end block %}
