@@ -21,9 +21,9 @@ class Blog(db.Model):
 def index():
 
     if request.method == 'POST':
-        task_name = request.form['task']
-        new_task = Task(task_name)
-        db.session.add(new_task)
+        blog_title = request.form['title']
+        new_blog = Blog(blog_title)
+        db.session.add(new_blog)
         db.session.commit()
 
     blogs = Blog.query.all()
