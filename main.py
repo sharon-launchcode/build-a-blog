@@ -34,7 +34,7 @@ def new_post():
         title = request.form['title']
         body = request.form['body']
 
-        if title == "" or entry == "":
+        if title == "" or body == "":
             if title == "":
                 title_error = "Please enter a title"
             if body == "":
