@@ -18,6 +18,18 @@ class Blog(db.Model):
         self.title = title
         self.body = body
 
+@app.route('/blog', methods=['GET'])
+def display_post():
+    if len(request.args) != 0:
+        writeup_id = request.args.get("id")
+        writeup = Blog.query.get(writeup_id)
+
+        return render_template('writeup.html', writeup=writeup)
+
+    return render_template('blog.html', posts=posts)
+
+@app.route('/newpost', methods=['POST', 'GET'])        
+
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
